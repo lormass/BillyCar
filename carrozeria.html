@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Terrone</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #343a40;
+            padding: 15px 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .left-text, .right-text {
+            color: #fff;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .logo {
+            height: 50px;
+        }
+
+        .section {
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .parallax {
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            filter: brightness(70%);
+        }
+
+        .section-content {
+            position: relative;
+            z-index: 1;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            text-align: center;
+        }
+
+        .section-content h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        .card-section {
+            padding: 50px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            height: 100vh;
+            flex-wrap: wrap;
+            background-color: #343a40;
+        }
+
+        .card-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .card {
+            background-color: #ffffff;
+            border-radius: 15px;
+            width: 350px;
+            height: 450px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+            position: relative;
+            color: #333;
+        }
+
+        .card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.25);
+        }
+
+        .card-body {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            height: 100%;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .card-text {
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .btn-custom {
+            background-color: #4c61d2;
+            color: white;
+            border-radius: 30px;
+            text-align: center;
+            padding: 10px 20px;
+            border: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-custom:hover {
+            background-color: #6a7fef;
+        }
+
+        @media (max-width: 768px) {
+            .card-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .card {
+                width: 100%;
+                max-width: 350px;
+            }
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .contact-section {
+            background-color: #343a40;
+            color: rgb(255, 255, 255);
+            padding: 50px 0;
+            text-align: center;
+            font-family: 'Impact', sans-serif;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            text-align: center; 
+            justify-content: center;
+            flex-direction: column; 
+        }
+
+        .contact-icon {
+            width: 35px;
+            height: 35px;
+            margin-bottom: 10px; 
+        }
+
+        .contact-item p {
+            font-size: 1.5rem;
+            font-family: 'Impact', sans-serif;
+        }
+        .mappabillycar {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+        }
+        .mappabillycar iframe {
+            position: absolute;
+            top: 100px;
+            left: 390px;
+            width: 50%;
+            height: 50%;
+            border: 0;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <div class="left-text">
+            <a href="#contatti" style="color: white;">Contattaci</a>
+        </div>
+        <img src="logo_billycar-removebg-preview.png" alt="Logo" class="logo">
+        <div class="right-text">
+            <a href="#contatti" style="color: white;">Orari di apertura</a>
+        </div>
+    </nav>
+
+    <!-- Prima Sezione Parallax -->
+    <div class="section">
+        <div class="parallax" style="background-image: url('sfondo1.jpeg');"></div>
+        <div class="section-content">
+            <h1>Benvenuti alla Carrozzeria Billy Car</h1>
+        </div>
+    </div>
+
+    <!-- Seconda Sezione Parallax -->
+    <div class="section">
+        <div class="parallax" style="background-image: url('sfondo2.jpeg');"></div>
+        <div class="section-content">
+            <h1>I Nostri Servizi</h1>
+        </div>
+    </div>
+
+    <!-- Sezione con le Card -->
+    <div class="card-section">
+        <div class="card-container">
+            <!-- Card 1 -->
+            <div class="card">
+                <div id="carousel1" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="card1.jpeg" class="d-block w-100" alt="Carrozzeria">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="card2.png" class="d-block w-100" alt="Carrozzeria">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="card3.jpeg" class="d-block w-100" alt="Carrozzeria">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carousel1" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carousel1" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Carrozzeria Billy Car</h5>
+                    <p class="card-text">La carrozzeria Billy Car è situata in Via Del Turismo,1 in Vigano di Gaggiano. La nostra struttura è attrezzata per garantire la massima cura e attenzione per ogni tipo di mezzo.</p>
+                    <a href="#contatti" class="btn-custom">Scopri di più</a>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="card">
+                <div id="carousel2" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="card4.jpeg" class="d-block w-100" alt="Team di Esperti">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="card5.jpeg" class="d-block w-100" alt="Team di Esperti">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="card6.jpeg" class="d-block w-100" alt="Team di Esperti">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carousel2" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carousel2" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Team di Esperti</h5>
+                    <p class="card-text">Il nostro team di esperti è sempre pronto a risolvere ogni problema, con passione e competenza, per offrirti il miglior servizio.</p>
+                    <a href="#contatti" class="btn-custom">Scopri di più</a>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="card">
+                <div id="carousel3" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="card7.jpeg" class="d-block w-100" alt="Servizi Completi">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="card8.jpeg" class="d-block w-100" alt="Servizi Completi">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="card9.jpeg" class="d-block w-100" alt="Servizi Completi">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carousel3" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carousel3" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Servizi Completi</h5>
+                    <p class="card-text">Riparazioni, verniciature, e assistenza su sinistri stradali con il programma WINN CAR. Gestiamo tutto via telematica per velocizzare il processo.</p>
+                    <a href="#contatti" class="btn-custom">Scopri di più</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   <!-- Terza Sezione Parallax -->
+   <div class="section">
+    <div class="parallax" style="background-image: url('sfondo3.jpeg');"></div>
+    <div class="section-content">
+        <h1>Contattaci per Maggiori Dettagli</h1>
+    </div>
+</div>
+
+    <!-- Sezione Contatti -->
+    <div class="contact-section" id="contatti">
+        <h2>VIENI A TROVARCI</h2>
+        <div class="contact-info">
+            <div class="contact-item">
+                <img src="email-icon.jpg" alt="Email Icon" class="contact-icon">
+                <p>carrozzeriabillycarsrls@gmail.com</p>
+            </div>
+            <div class="contact-item">
+                <img src="map-pin-icon.jpg" alt="Map Pin Icon" class="contact-icon">
+                <p>Via Del Turismo, 1, 20083 Gaggiano MI</p>
+            </div>
+            <div class="contact-item">
+                <img src="phone-icon.jpg" alt="Phone Icon" class="contact-icon">
+                <p>3895883105</p>
+            </div>
+        </div>
+
+        <div class="contact-item">
+            <p><strong>Orari di apertura:</strong></p>
+            <p>Lunedì-Sabato 08:30 - 13:00, 14:00 - 18:00</p>
+            <p>Domenica: Chiuso</p>
+        </div>
+    
+     <!-- Aggiungi la mappa -->
+     <div class="mappabillycar">
+        <h3>Trova la nostra sede sulla mappa:</h3>
+        <iframe src="https://www.google.com/maps?q=Via+del+Turismo+1,+20083+Gaggiano+(MI)&output=embed" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+</div>
+</body>
+</html>
+
